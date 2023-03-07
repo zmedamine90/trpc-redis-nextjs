@@ -12,7 +12,19 @@ datasource db {
 
 model User {
   @@map(name: "users")
-  id String @id @default(uuid())
+  id String  @id @default(uuid())
   name String @db.VarChar(255)
 
+  email String @unique
+  photo String @default("default.png")
+  verified Boolean @default(false)
+
+  password String
+  role Role? @default(USER)
+}
+
+
+enum Role {
+  USER
+  ADMIN
 }

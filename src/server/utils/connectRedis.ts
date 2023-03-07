@@ -15,6 +15,7 @@ const connectRedis = async () => {
       "Welcome to tRPC with Nextjs, Prisma and Typescript"
     );
   } catch (err: any) {
+    console.log("Catching error");
     console.log(err.message);
     process.exit(1);
   }

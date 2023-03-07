@@ -6,7 +6,10 @@ connectDB();
 
 export const appRouter = t.router({
   getHello: t.procedure.query(async ({ ctx }) => {
-    const message = await redisClient.get("trpc");
-    return message;
+    console.log("calling query");
+    const message = await redisClient.get("tRPC");
+    return { message };
   }),
 });
+
+export type AppRouter = typeof appRouter;
